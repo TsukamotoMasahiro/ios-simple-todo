@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tsukamoto SimpleTodo</title>
+  <style>
+    :root {
+      --accent: #2f8fff;
+      --bg: #f5f6f8;
+      --card: #ffffff;
+      --text: #1c1c1e;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Hiragino Sans", "Yu Gothic", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-text-size-adjust: 100%;
+    }
+    .wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 32px 20px 64px;
+    }
+    header {
+      text-align: center;
+      padding: 24px 0 8px;
+    }
+    .icon {
+      width: 96px;
+      height: 96px;
+      border-radius: 22px;
+      background: linear-gradient(160deg, #4fa3ff, #1f63d6);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 48px;
+      box-shadow: 0 6px 18px rgba(31, 99, 214, 0.35);
+    }
+    h1 {
+      font-size: 1.6rem;
+      margin: 16px 0 4px;
+    }
+    .tagline {
+      color: var(--muted);
+      margin: 0 0 24px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px 22px;
+      margin: 16px 0;
+    }
+    h2 {
+      font-size: 1.15rem;
+      margin: 0 0 12px;
+    }
+    ul { margin: 8px 0; padding-left: 1.2em; }
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 8px;
+    }
+    .btn {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      background: var(--accent);
+      color: #fff;
+      padding: 14px 18px;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: opacity .15s;
+    }
+    .btn.secondary {
+      background: #fff;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+    }
+    .btn:hover { opacity: .9; }
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: .85rem;
+      margin-top: 32px;
+    }
+    a { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="icon">&#10003;</div>
+      <h1>Tsukamoto SimpleTodo</h1>
+      <p class="tagline">シンプルなTODO管理アプリ</p>
+    </header>
+
+    <div class="card">
+      <h2>概要</h2>
+      <p>
+        Tsukamoto SimpleTodo は、やるべきことを手軽に追加・完了・削除できる、
+        最小構成のシンプルなTODO管理アプリです。
+      </p>
+      <ul>
+        <li>外部サーバーへの通信は行いません</li>
+        <li>ログイン不要・広告なし・課金なし</li>
+        <li>データは端末内にのみ保存されます</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>ページ</h2>
+      <div class="links">
+        <a class="btn" href="support.html">サポート / Support</a>
+        <a class="btn secondary" href="privacy.html">プライバシーポリシー</a>
+      </div>
+    </div>
+
+    <footer>
+      &copy; 2026 Tsukamoto SimpleTodo
+    </footer>
+  </div>
+</body>
+</html>
