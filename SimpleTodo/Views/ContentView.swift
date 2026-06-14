@@ -10,17 +10,8 @@ import SwiftUI
 // MARK: - Priority 表示用拡張（Viewレイヤー専用）
 
 private extension Priority {
-    /// 一覧行に表示するラベル文字列。
+    /// バッジ・メニュー共通の日本語ラベル。
     var displayLabel: String {
-        switch self {
-        case .high:   return "HIGH"
-        case .medium: return "MED"
-        case .low:    return "LOW"
-        }
-    }
-
-    /// メニューや案内テキスト用の日本語表示。
-    var localizedLabel: String {
         switch self {
         case .high:   return "高"
         case .medium: return "中"
@@ -180,14 +171,14 @@ struct ContentView: View {
             .padding(.vertical, 10)
             .background(Color(.secondarySystemBackground), in: .rect(cornerRadius: 12))
 
-            // 優先度 Menu。タップで HIGH / MED / LOW を選択できます。
+            // 優先度 Menu。タップで高 / 中 / 低 を選択できます。
             Menu {
                 ForEach(Priority.allCases, id: \.self) { p in
                     Button {
                         withAnimation(.snappy) { selectedPriority = p }
                     } label: {
                         Label(
-                            "\(p.localizedLabel)（\(p.displayLabel)）",
+                            p.displayLabel,
                             systemImage: selectedPriority == p ? "checkmark" : p.flagIconName
                         )
                     }
@@ -201,7 +192,7 @@ struct ContentView: View {
                     .contentTransition(.symbolEffect(.replace))
                     .animation(.snappy, value: selectedPriority)
             }
-            .accessibilityLabel("優先度を選択: \(selectedPriority.localizedLabel)")
+            .accessibilityLabel("優先度を選択: \(selectedPriority.displayLabel)")
 
             // 追加ボタン。
             Button(action: addTodo) {
@@ -285,9 +276,9 @@ private struct TodoDisclosureRow: View {
                         }
                     } label: {
                         if item.priority == p {
-                            Label("\(p.localizedLabel)（\(p.displayLabel)）", systemImage: "checkmark")
+                            Label(p.displayLabel, systemImage: "checkmark")
                         } else {
-                            Text("\(p.localizedLabel)（\(p.displayLabel)）")
+                            Text(p.displayLabel)
                         }
                     }
                 }
